@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Example App</title>
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+</head>
+<body>
+
+  <script src="capacitor.js"></script>
+  <script>
+    request = new XMLHttpRequest();
+    request.open('GET', 'https://jsonplaceholder.typicode.com/posts/1', true);
+    request.onreadystatechange = function() {
+      if (request.readyState === 4) {
+        if (request.status === 200) {
+          alert('Connection successful');
+        } else {
+          alert(request.status ? 'Error ' + request.status : 'Unable to connect');
+        }
+      }
+    };
+    request.timeout = 10000; // 10 seconds
+    request.send();
+  </script>
+</body>
+</html>
+
